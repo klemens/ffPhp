@@ -4,11 +4,11 @@ if(!defined('LF')) define('LF', "\n");
 
 class ffException extends exception;
 
-require_once "ffObject.php";
+require_once 'ffObject.php';
 
-require_once "ffFieldset.php";
-require_once "ffInput.php";
-require_once "ffButton.php";
+require_once 'ffFieldset.php';
+require_once 'ffInput.php';
+require_once 'ffButton.php';
 
 class ffPhp extends ffObject {
     protected $allowedProperties = array('uniqueId' => array('type' => 'u+int'),
@@ -117,15 +117,29 @@ class ffPhp extends ffObject {
     }
     
     public function IsSent() {
-    
+        return isset($this->req['ffPhpFormSent']) && $this->req['ffPhpFormSent'] == $this->id;
     }
     
     public function IsComplete() {
-    
+        foreach($this->controls AS &$control) {
+            if(!$control->IsComplete()) {
+                return false;
+            }
+        } unset($control);
+        
+        return true;
     }
     
     public function ApplySent() {
-    
+        foreach($this->controls AS &$control) {
+            $control->ApplySent();
+        } unset($control);
+        
+        foreach($this->hiddenControls AS &$hiddenControl) {
+            $hiddenControl->ApplySent();
+        } unset($hiddenControl);
+        
+        return true;
     }
     
     private function SetRequestArray() {
