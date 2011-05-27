@@ -121,13 +121,14 @@ class ffPhp extends ffObject {
     }
     
     public function IsComplete() {
+        $r = true;
         foreach($this->controls AS &$control) {
             if(!$control->IsComplete()) {
-                return false;
+                $r = false;
             }
         } unset($control);
         
-        return true;
+        return $r;
     }
     
     public function ApplySent() {
