@@ -4,7 +4,7 @@ class ffFieldset extends ffObject implements ffiControl{
     protected $allowedProperties = array('id'       => array('type' => 'string', 'default' => ''),
                                          'legend'   => array('type' => 'string', 'default' => ''),
                                          'cssClass' => array('type' => 'array',  'default' => array()),
-                                         '_ffPhp'   => array('type' => 'object'));
+                                         'ffPhp'   => array('type' => 'object'));
     
     public $fieldsetOpen = false;
     

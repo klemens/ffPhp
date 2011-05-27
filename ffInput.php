@@ -12,7 +12,7 @@ class ffInput extends ffObject implements ffiControl{
                                          'cssClass' => array('type' => 'array',  'default' => array()),
                                          'required' => array('type' => 'bool',  'default' => false),
                                          'error'    => array('type' => 'string',  'default' => ''),
-                                         '_ffPhp'   => array('type' => 'object'));
+                                         'ffPhp'   => array('type' => 'object'));
     
     public function __construct($id = null, $label = null) {
         if(isset($id))

@@ -49,7 +49,7 @@ class ffPhp extends ffObject {
             $this->multipart = true;
         }
         
-        $control->_ffPhp = $this;
+        $control->ffPhp = $this;
         
         return $control;
     }
