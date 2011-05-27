@@ -167,20 +167,6 @@ abstract class ffObject {
     }
     
     /**
-     * Returns the property: name or, of not set, the property: id.
-     * @throws ffException
-     */
-    private function GetNameId() {
-        if(isset($this->name))
-            return $this->name;
-        
-        if(isset($this->id))
-            return $this->id;
-        
-        throw new ffException('You must set at least one of name or id!');
-    }
-    
-    /**
      * Function to show the object. Simply calls GetHtml() internally.
      * @see GetHtml()
      * @throws ffException
