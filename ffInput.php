@@ -33,6 +33,6 @@ class ffInput extends ffObject implements ffiControl{
     }
     
     public function ApplySent() {
-        if(isset)
+
     }
 }

@@ -20,7 +20,7 @@ class ffPhp extends ffObject {
     public $req;
     
     private $multipart = false;
-    private $openfieldset = false;
+    private $hiddenSentFieldAdded = false;
     
     private $controls = array();
     private $hiddenControls = array();
@@ -55,7 +55,65 @@ class ffPhp extends ffObject {
     }
     
     public function GetHtml() {
-    
+        $r = '';
+        
+        if(empty($this->controls) && empty($this->buttons))
+            throw new exception('You must add at least one visible element.');
+        
+        if(!$this->hiddenSentFieldAdded) {
+            $this->Add(new ffHidden('ffPhpFormSent'))->value = $this->id;
+        }
+        
+        if($this->multipart)
+            $this->method = 'post';
+        
+        if($this->multipart)
+            $r .= '<form enctype="multipart/form-data" ';
+        else
+            $r .= '<form ';
+        
+        $r .= sprintf(' accept-charset="UTF-8" method="%s" action="%s" class="%s">'.LF,
+                      $this->method, $this->action,
+                      implode(' ', array_merge((array)'ffphp', $this->cssClass)));
+        
+        $fieldsetOpen = false;
+        $highlightCurrentRow = false;
+        foreach($this->controls AS &$control) {
+            if($control instanceof ffFieldset) {
+                $control->fieldsetOpen = $fieldsetOpen;
+                $r .= $control->GetHtml();
+                $fieldsetOpen = true;
+            } else {
+                if($this->oddHighlight) {
+                    if($highlightCurrentRow) {
+                        $r .= '<li class="ffphp-r2">'.LF;
+                    } else {
+                        $r .= '<li class="ffphp-r1">'.LF;
+                    }
+                    $highlightCurrentRow = !$highlightCurrentRow;
+                } else {
+                    $r .= '<li>'.LF;
+                }
+                $r .= $control->GetHtml();
+                $r .= '</li>'.LF;
+            }
+        } unset($control);
+        
+        $r .= '</ol>'.LF.'</fieldset>'.LF;
+        
+        foreach($this->buttons AS &$button) {
+            $r .= $button->GetHtml();
+        } unset($button);
+        
+        $r .= '<div>'.LF;
+        foreach($this->hiddenControls AS &$hiddenControl) {
+            $r .= $hiddenControl->GetHtml();
+        } unset($hiddenControl);
+        $r .= '</div>'.LF;
+        
+        $r .= '</form>';
+        
+        return $r;
     }
     
     public function IsSent() {

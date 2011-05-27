@@ -6,16 +6,18 @@ class ffFieldset extends ffObject implements ffiControl{
                                          'cssClass' => array('type' => 'array',  'default' => array()),
                                          '_ffPhp'   => array('type' => 'object'));
     
+    public $fieldsetOpen = false;
+    
     public function __construct($legend = null) {
         if($legend)
             $this->legend = $legend;
     }
     
-    public function GetHtml($fieldsetOpen) {
+    public function GetHtml() {
         $this->CheckProperties();
         $r = '';
         
-        if($fieldsetOpen) {
+        if($this->fieldsetOpen) {
             $r .= '</ol>'.LF.'</fieldset>'.LF;
         }
         
