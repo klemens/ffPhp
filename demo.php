@@ -1,6 +1,6 @@
 <?php
 
-require_once 'ffPhp.php';
+require_once 'lib/ffPhp/ffPhp.php';
 
 $form = new ffPhp;
 

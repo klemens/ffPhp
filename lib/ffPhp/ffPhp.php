@@ -7,10 +7,10 @@ class ffException extends exception {};
 
 require_once 'ffObject.php';
 
-require_once 'ffFieldset.php';
-require_once 'ffInput.php';
-require_once 'ffHidden.php';
-require_once 'ffButton.php';
+require_once 'controls/ffFieldset.php';
+require_once 'controls/ffInput.php';
+require_once 'controls/ffHidden.php';
+require_once 'controls/ffButton.php';
 
 class ffPhp extends ffObject {
     protected $allowedProperties = array('id'       => array('type' => 'u+int'),
