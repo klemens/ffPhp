@@ -9,6 +9,7 @@ require_once 'ffObject.php';
 
 require_once 'ffFieldset.php';
 require_once 'ffInput.php';
+require_once 'ffHidden.php';
 require_once 'ffButton.php';
 
 class ffPhp extends ffObject {
