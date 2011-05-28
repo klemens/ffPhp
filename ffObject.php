@@ -181,4 +181,21 @@ abstract class ffObject {
     static public function HSC($string) {
         return htmlspecialchars($string);
     }
+    
+    /**
+     * Returns xHtml code for an array of flags:
+     * array('disabled') becomes 'disabled="disabled"'
+     */
+     public function FlagsToHtml($flags) {
+        $r = '';
+        
+        foreach($flags AS $flag) {
+            if(empty($flag))
+                continue;
+            
+            $r .= $flag.'="'.$flag.'" ';
+        }
+        
+        return trim($r);
+     }
 }
