@@ -37,7 +37,7 @@ class ffInput extends ffObject implements ffiControl{
         
         if(!empty($this->ffPhp->req[$this->name]) && $this->regex &&
            !preg_match($this->regex, $this->ffPhp->req[$this->name])) {
-            $this->error = 'Your input does not have the right format!'
+            $this->error = 'Your input does not have the right format!';
             return false;
         }
         

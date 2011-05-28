@@ -2,7 +2,7 @@
 
 if(!defined('LF')) define('LF', "\n");
 
-class ffException extends exception;
+class ffException extends exception {};
 
 require_once 'ffObject.php';
 
@@ -11,9 +11,8 @@ require_once 'ffInput.php';
 require_once 'ffButton.php';
 
 class ffPhp extends ffObject {
-    protected $allowedProperties = array('uniqueId' => array('type' => 'u+int'),
-                                         'id'       => array('type' => 'string', 'default' => ''),
-                                         'action'   => array('type' => 'string', 'default' => $_SERVER['SCRIPT_NAME']),
+    protected $allowedProperties = array('id'       => array('type' => 'u+int'),
+                                         'action'   => array('type' => 'string', 'default' => ''),
                                          'method'   => array('type' => 'string', 'callback' => 'SetRequestArray'),
                                          'oddHighlight' => array('type' => 'bool', 'default' => true),
                                          'cssClass' => array('type' => 'array',  'default' => array()));
@@ -28,6 +27,8 @@ class ffPhp extends ffObject {
     
     public function __construct($method = 'post') {
         $this->method = $method;
+        
+        $this->action = $_SERVER['SCRIPT_NAME'];
         
         static $uniqueId = 1;
         $this->id = $uniqueId++; //Increment for next instance
@@ -143,12 +144,10 @@ class ffPhp extends ffObject {
         return true;
     }
     
-    private function SetRequestArray() {
+    protected function SetRequestArray() {
         if(stripos($this->method, 'get') !== false)
             $this->req =& $_GET;
         else
             $this->req =& $_POST;
     }
-    
-    
 }

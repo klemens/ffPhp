@@ -1,8 +1,8 @@
 <?php
 
-interface ffiControl;
-interface ffiHiddenControl extends ffiControl;
-interface ffiButtonControl extends ffiControl;
+interface ffiControl {};
+interface ffiHiddenControl extends ffiControl {};
+interface ffiButtonControl extends ffiControl {};
 
 abstract class ffObject {
     /**
@@ -52,7 +52,7 @@ abstract class ffObject {
     /**
      * The properties itself as an associative array.
      */
-    protected $properties
+    protected $properties;
     
     /**
      * Magic function to set the properties defined in $allowedProperties.
@@ -116,7 +116,7 @@ abstract class ffObject {
             if(is_callable(array($this, $this->allowedProperties[$name]['callback']))) {
                 call_user_func(array($this, $this->allowedProperties[$name]['callback']));
             } else {
-                throw new ffExeption('Callback function of "'.$name.'" does not exist!');
+                throw new ffException('Callback function of "'.$name.'" does not exist!');
             }
         }
     }
