@@ -178,7 +178,7 @@ abstract class ffObject {
     /**
      * Alias for htmlspecialchars().
      */
-    static public function HSC($string) {
+    public function HSC($string) {
         return htmlspecialchars($string);
     }
     
