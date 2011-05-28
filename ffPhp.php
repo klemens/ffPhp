@@ -1,6 +1,7 @@
 <?php
 
 if(!defined('LF')) define('LF', "\n");
+if(!defined('SP')) define('SP', ' ');
 
 class ffException extends exception {};
 
