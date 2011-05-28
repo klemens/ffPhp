@@ -14,11 +14,10 @@ class ffHidden extends ffObject implements ffiHiddenControl {
         $this->CheckProperties();
         $r = '';
         
-        $r .= '<input type="hidden" id="'.$this->id.'" name="'.$this->name.'"';
+        $r .= '<input type="hidden" id="'.$this->id.'" name="'.$this->id.'"';
         
-        if(this->value)) {
+        if($this->value)
             $r .= ' value="'.$this->HSC($this->value).'"';
-        }
         
         $r .= ' />'.LF;
         
@@ -31,6 +30,6 @@ class ffHidden extends ffObject implements ffiHiddenControl {
     
     public function ApplySent() {
         if(!empty($this->ffPhp->req[$this->id]) && empty($this->value))
-            $this->value = $this->ffPhp->req[$this->id]
+            $this->value = $this->ffPhp->req[$this->id];
     }
 }

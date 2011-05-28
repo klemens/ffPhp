@@ -64,7 +64,7 @@ class ffPhp extends ffObject {
             throw new exception('You must add at least one visible element.');
         
         if(!$this->hiddenSentFieldAdded) {
-            $this->Add(new ffHidden('ffPhpFormSent'))->value = $this->id;
+            $this->Add(new ffHidden('ffPhpFormSent'))->value = (string)$this->id;
         }
         
         if($this->multipart)
@@ -120,7 +120,7 @@ class ffPhp extends ffObject {
     }
     
     public function IsSent() {
-        return isset($this->req['ffPhpFormSent']) && $this->req['ffPhpFormSent'] == $this->id;
+        return isset($this->req['ffPhpFormSent']) && $this->req['ffPhpFormSent'] == (string)$this->id;
     }
     
     public function IsComplete() {

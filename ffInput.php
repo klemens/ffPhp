@@ -60,7 +60,7 @@ class ffInput extends ffObject implements ffiControl{
             if($this->value)
                 $r .= ' value="'.$this->HSC($this->value).'"';
             
-            if($this->data['maxlength'])
+            if($this->maxlength)
                 $r .= ' maxlength="'.$this->maxlength.'"';
             
             if($this->flags) {

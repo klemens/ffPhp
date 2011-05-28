@@ -155,7 +155,7 @@ abstract class ffObject {
      * (Required properties don't have a default value)
      * @throws ffException
      */
-    private function CheckProperties() {
+    protected function CheckProperties() {
         foreach($this->allowedProperties AS $property => $propertyValues) {
             if(!isset($propertyValues['default']) && !isset($this->properties[$property])) {
                 if(isset($propertyValues['type']))
