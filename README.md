@@ -8,6 +8,7 @@ Overview
 With ffPhp you can create xHtml forms in php very simple.
 
 Supported controls are:
+
  * Fieldset
  * Singleline input
  * Multiline input (textarea)
