@@ -34,6 +34,7 @@ $form = new ffPhp;
 
 $form->Add(new ffFieldset('Personal data'));
 $form->Add(new ffInput('name', 'Name'))->required = true;
+$form->Add(new ffButton('Submit'));
 
 if($form->IsSent()) {
     if($form->IsComplete()) {
