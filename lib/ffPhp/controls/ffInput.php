@@ -86,8 +86,8 @@ class ffInput extends ffObject implements ffiControl{
             return false;
         }
         
-        if(!empty($this->ffPhp->req[$this->name]) && $this->regex &&
-           !preg_match($this->regex, $this->ffPhp->req[$this->name])) {
+        if(!empty($this->ffPhp->req[$this->id]) && $this->regex &&
+           !preg_match($this->regex, $this->ffPhp->req[$this->id])) {
             $this->error = 'Your input does not have the right format!';
             return false;
         }
@@ -96,8 +96,8 @@ class ffInput extends ffObject implements ffiControl{
     }
     
     public function ApplySent() {
-        if(!$this->password && !empty($this->ffPhp->req[$this->name]) && empty($this->value)) {
-            $this->value = $this->ffPhp->req[$this->name];
+        if(!$this->password && !empty($this->ffPhp->req[$this->id]) && empty($this->value)) {
+            $this->value = $this->ffPhp->req[$this->id];
         }
     }
 }
