@@ -1,5 +1,6 @@
 form.ffphp fieldset {
     margin: 0;
+    padding: 10px 5px;
     border: none;
 }
 form.ffphp legend {
@@ -9,6 +10,7 @@ form.ffphp label {
     display: -moz-inline-box;
     display: inline-block;
     vertical-align: top;
+    padding-left: 0.5em;
 }
 form.ffphp fieldset ol {
     margin: 0;
@@ -16,7 +18,7 @@ form.ffphp fieldset ol {
 }
 form.ffphp fieldset li {
     list-style: none;
-    padding: 0.45em;
+    padding: 0.45em 0 0.45em 0;
     margin: 0;
 }
 form.ffphp fieldset fieldset {
@@ -34,6 +36,12 @@ form.ffphp fieldset fieldset label {
     width: auto;
 }
 
+form.ffphp input,
+form.ffphp textarea {
+    width: 56%;
+    width: -moz-calc(60% - 1.5em - 5px);
+}
+
 form.ffphp em {
     font-weight: bold;
     font-style: normal;
@@ -46,24 +54,21 @@ form.ffphp strong {
     vertical-align: middle;
 }
 form.ffphp label {
-    width: 15em;
+    width: 40%;
 }
 form.ffphp fieldset fieldset label {
-    margin-left: 15em;
+    margin-left: 40%;
 }
 form.ffphp button {
-    margin-left: 19.6em;
-}
-form.ffphp fieldset.ffphp-button {
-    border: none;
-    padding: 0;
+    margin-left: 41%;
+    margin-left: -moz-calc(40% + 0.6em);
 }
 form.ffphp fieldset.ffphp-button li {
-    padding: 0;
+    padding: 0 0 0 5px;
 }
 
 form.ffphp li.ffphp-r1 {
-    background-color: #FFF;
+    background-color: none;
 }
 form.ffphp li.ffphp-r2 {
     background-color: #F5F5F5;
