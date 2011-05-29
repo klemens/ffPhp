@@ -13,7 +13,6 @@ Supported controls are:
  * Singleline input
  * Multiline input (textarea)
  * Hidden field
-
  * more coming...
 
 Look into `demo.php` for some examples.

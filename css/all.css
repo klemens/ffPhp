@@ -1,0 +1,79 @@
+form.ffphp fieldset {
+    margin: 0;
+    border: none;
+}
+form.ffphp legend {
+    font-weight: bold;
+}
+form.ffphp label {
+    display: -moz-inline-box;
+    display: inline-block;
+    vertical-align: top;
+}
+form.ffphp fieldset ol {
+    margin: 0;
+    padding: 0;
+}
+form.ffphp fieldset li {
+    list-style: none;
+    padding: 0.45em;
+    margin: 0;
+}
+form.ffphp fieldset fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+form.ffphp fieldset fieldset legend {
+    padding: 0;
+    margin-left: -0.6em;
+    font-weight: normal;
+}
+form.ffphp fieldset fieldset label {
+    display: block;
+    width: auto;
+}
+
+form.ffphp em {
+    font-weight: bold;
+    font-style: normal;
+    color: red;
+}
+form.ffphp strong {
+    font-weight: bold;
+    font-size: 0.7em;
+    color: red;
+    vertical-align: middle;
+}
+form.ffphp label {
+    width: 15em;
+}
+form.ffphp fieldset fieldset label {
+    margin-left: 15em;
+}
+form.ffphp button {
+    margin-left: 19.6em;
+}
+form.ffphp fieldset.ffphp-button {
+    border: none;
+    padding: 0;
+}
+form.ffphp fieldset.ffphp-button li {
+    padding: 0;
+}
+
+form.ffphp li.ffphp-r1 {
+    background-color: #FFF;
+}
+form.ffphp li.ffphp-r2 {
+    background-color: #F5F5F5;
+}
+form.ffphp .ffphp-error {
+    border: solid 2px red;
+}
+form.ffphp em.ffphp-error {
+    border: none;
+    color: red;
+    font-size: 0.8em;
+    font-weight: bold;
+}
