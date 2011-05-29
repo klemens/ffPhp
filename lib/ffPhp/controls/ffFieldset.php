@@ -2,15 +2,15 @@
 
 class ffFieldset extends ffObject implements ffiControl{
     protected $allowedProperties = array('id'       => array('type' => 'string', 'default' => ''),
-                                         'legend'   => array('type' => 'string', 'default' => ''),
+                                         'label'    => array('type' => 'string', 'default' => ''),
                                          'cssClass' => array('type' => 'array',  'default' => array()),
-                                         'ffPhp'   => array('type' => 'object'));
+                                         'ffPhp'    => array('type' => 'object'));
     
     public $fieldsetOpen = false;
     
-    public function __construct($legend = null) {
-        if($legend)
-            $this->legend = $legend;
+    public function __construct($label = null) {
+        if($label)
+            $this->label = $label;
     }
     
     public function GetHtml() {
@@ -33,8 +33,8 @@ class ffFieldset extends ffObject implements ffiControl{
         
         $r .= '>'.LF;
         
-        if(isset($this->legend)) {
-            $r .= '<legend>'.$this->legend.'</legend>'.LF;
+        if(isset($this->label)) {
+            $r .= '<legend>'.$this->label.'</legend>'.LF;
         }
         
         $r .= '<ol>'.LF;
