@@ -32,4 +32,11 @@ class ffHidden extends ffObject implements ffiHiddenControl {
         if(!empty($this->ffPhp->req[$this->id]) && empty($this->value))
             $this->value = $this->ffPhp->req[$this->id];
     }
+    
+    public function GetValue($default = '') {
+        if(!empty($this->ffPhp->req[$this->id])
+            return $this->ffPhp->req[$this->id];
+        else
+            return $default;
+    }
 }
