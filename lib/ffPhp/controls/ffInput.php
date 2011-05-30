@@ -100,4 +100,11 @@ class ffInput extends ffObject implements ffiControl{
             $this->value = $this->ffPhp->req[$this->id];
         }
     }
+    
+    public function GetValue($default = '') {
+        if(!empty($this->ffPhp->req[$this->id])
+            return $this->ffPhp->req[$this->id];
+        else
+            return $default;
+    }
 }
