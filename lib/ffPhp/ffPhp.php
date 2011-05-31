@@ -12,6 +12,7 @@ require_once 'controls/ffInput.php';
 require_once 'controls/ffHidden.php';
 require_once 'controls/ffButton.php';
 require_once 'controls/ffCheckbox.php';
+require_once 'controls/ffRadio.php';
 
 class ffPhp extends ffObject {
     protected $allowedProperties = array('id'       => array('type' => 'u+int'),
