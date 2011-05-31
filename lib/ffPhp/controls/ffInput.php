@@ -80,13 +80,13 @@ class ffInput extends ffObject implements ffiControl{
     
     public function IsComplete() {
         if($this->required && empty($this->ffPhp->req[$this->id])) {
-            $this->error = 'You have to fill in this field!';
+            $this->error = '';
             return false;
         }
         
         if(!empty($this->ffPhp->req[$this->id]) && $this->regex &&
            !preg_match($this->regex, $this->ffPhp->req[$this->id])) {
-            $this->error = 'Your input does not have the right format!';
+            $this->error = '';
             return false;
         }
         
