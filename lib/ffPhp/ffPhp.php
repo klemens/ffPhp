@@ -17,7 +17,7 @@ class ffPhp extends ffObject {
     protected $allowedProperties = array('id'       => array('type' => 'u+int'),
                                          'action'   => array('type' => 'string', 'default' => ''),
                                          'method'   => array('type' => 'string', 'callback' => 'SetRequestArray'),
-                                         'oddHighlight' => array('type' => 'bool', 'default' => true),
+                                         'oddHighlight' => array('type' => 'bool', 'default' => false),
                                          'cssClass' => array('type' => 'array',  'default' => array()));
     public $req;
     
