@@ -17,6 +17,7 @@ class ffRadio extends ffObject implements ffiControl {
     
     public function GetHtml() {
         $this->CheckProperties();
+        $this->EnsureOneChecked();
         $r = '';
         
         $r .= '<fieldset>'.LF.'<legend';
@@ -96,5 +97,23 @@ class ffRadio extends ffObject implements ffiControl {
             if(isset($this->choices[$argument]))
                 $this->choices[$argument][1] = 'disabled';
         }
+    }
+    
+    private function EnsureOneChecked() {
+        $found = false;
+        foreach($this->choices AS $choice) {
+            if(isset($choice[1]) && $choice[1] == 'checked')
+                $found = true;
+        }
+        if($found)
+            return;
+        
+        foreach($this->choices AS &$choice) {
+            if(isset($choice[1]) && $choice[1] == 'disabled')
+                continue;
+            
+            $choice[1] = 'checked';
+            return;
+        } unset($choice);
     }
 }
