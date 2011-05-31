@@ -72,7 +72,7 @@ class ffInput extends ffObject implements ffiControl{
             $r .= ' />'.LF;
         }
         
-        if(isset($this->error))
+        if($this->error)
             $r .= '<em class="ffphp-error">'.$this->HSC($this->error).'</em>'.LF;
         
         return $r;
