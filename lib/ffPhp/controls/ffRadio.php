@@ -87,14 +87,14 @@ class ffRadio extends ffObject implements ffiControl {
         $this->choices = array();
     }
     
-    public function CheckChoice($choice) {
-        if(isset($this->choices[$choice])) {
+    public function CheckChoice($newChoice) {
+        if(isset($this->choices[$newChoice])) {
             foreach($this->choices AS &$choice) {
                 if(isset($choice[1]) && $choice[1] == 'checked')
                     unset($choice[1]);
             }unset($choice);
         
-            $this->choices[$choice][1] = 'checked';
+            $this->choices[$newChoice][1] = 'checked';
         }
     }
     
