@@ -75,8 +75,12 @@ form.ffphp li.ffphp-r1 {
 form.ffphp li.ffphp-r2 {
     background-color: #F5F5F5;
 }
-form.ffphp .ffphp-error {
+form.ffphp input.ffphp-error {
     border: solid 2px red;
+}
+form.ffphp fieldset fieldset.ffphp-error label {
+    color: red;
+    font-weight: bold;
 }
 form.ffphp em.ffphp-error {
     border: none;

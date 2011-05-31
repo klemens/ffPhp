@@ -4,6 +4,7 @@ class ffCheckbox extends ffObject implements ffiControl {
     protected $allowedProperties = array('id'       => array('type' => 'string'),
                                          'label'    => array('type' => 'string'),
                                          'error'    => array('type' => 'string',  'default' => ''),
+                                         'required' => array('type' => 'bool', 'default' => false),
                                          'ffPhp'    => array('type' => 'object'));
     private $choices = array();
     
@@ -19,14 +20,14 @@ class ffCheckbox extends ffObject implements ffiControl {
         $this->CheckProperties();
         $r = '';
         
-        $r .= '<fieldset>'.LF.'<legend';
+        $r .= '<fieldset';
         
         if(isset($this->error))
             $r .= ' class="ffphp-error"';
         
-        $r .= '>'.$this->HSC($this->label).'</legend>'.LF;
+        $r .= '>'.LF.'<legend>'.$this->HSC($this->label).'</legend>'.LF;
         
-        if(isset($this->error))
+        if($this->error)
             $r .= '<em class="ffphp-error">'.$this->error.'</em>'.LF;
         
         $count = 1;
@@ -48,7 +49,11 @@ class ffCheckbox extends ffObject implements ffiControl {
     }
     
     public function IsComplete() {
-        return true;
+        if($this->required && 0 === count($this->GetValue())) {
+            $this->error = '';
+            return false;
+        }
+            
     }
     
     public function ApplySent() {
