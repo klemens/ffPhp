@@ -28,7 +28,7 @@ class ffCheckbox extends ffObject implements ffiControl {
         $r .= '>'.LF.'<legend>'.$this->HSC($this->label).'</legend>'.LF;
         
         if($this->error)
-            $r .= '<em class="ffphp-error">'.$this->error.'</em>'.LF;
+            $r .= '<em class="ffphp-error">'.$this->HSC($this->error).'</em>'.LF;
         
         $count = 1;
         foreach($this->choices AS $choice => $values) {

@@ -26,8 +26,8 @@ class ffRadio extends ffObject implements ffiControl {
         
         $r .= '>'.$this->HSC($this->label).'</legend>'.LF;
         
-        if(isset($this->error))
-            $r .= '<em class="ffphp-error">'.$this->error.'</em>'.LF;
+        if($this->error)
+            $r .= '<em class="ffphp-error">'.$this->HSC($this->error).'</em>'.LF;
         
         $count = 1;
         foreach($this->choices AS $choice => $values) {
