@@ -37,8 +37,8 @@ form.ffphp fieldset fieldset label {
 
 form.ffphp input,
 form.ffphp textarea {
-    width: 56%;
-    width: -moz-calc(60% - 1.5em - 5px);
+    width: 60%;
+    width: -moz-calc(65% - 1.5em - 5px);
 }
 form.ffphp fieldset fieldset label input {
     width: auto;
@@ -56,14 +56,14 @@ form.ffphp strong {
     vertical-align: middle;
 }
 form.ffphp label {
-    width: 40%;
+    width: 35%;
 }
 form.ffphp fieldset fieldset label {
-    margin-left: 40%;
+    margin-left: 35%;
 }
 form.ffphp button {
-    margin-left: 41%;
-    margin-left: -moz-calc(40% + 0.6em);
+    margin-left: 36%;
+    margin-left: -moz-calc(35% + 0.6em);
 }
 form.ffphp fieldset.ffphp-button li {
     padding: 0 0 0 5px;
