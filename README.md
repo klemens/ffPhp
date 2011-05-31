@@ -5,7 +5,7 @@ _Forms for PHP_
 Overview
 --------
 
-With ffPhp you can create xHtml forms in php very simple.
+With ffPhp you can create xHtml forms in php very easy.
 
 Supported controls are:
 
@@ -13,6 +13,8 @@ Supported controls are:
  * Singleline input
  * Multiline input (textarea)
  * Hidden field
+ * Checkbox group
+ * Radiobutton group
  * more coming...
 
 Look into `demo.php` for some examples.
