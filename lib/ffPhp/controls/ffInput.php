@@ -28,8 +28,8 @@ class ffInput extends ffObject implements ffiControl{
         
         $r .= '<label for="'.$this->id.'">'.$this->HSC($this->label);
         
-        if($this->required)
-            $r .= ' <em title="You have to fill in this field!">*</em>';
+        if(isset($this->required))
+            $r .= ' <em title="Required field!">*</em>';
         
         $r .= '</label>'.LF;
         
@@ -37,15 +37,15 @@ class ffInput extends ffObject implements ffiControl{
             $r .= '<textarea id="'.$this->id.'" name="'.$this->id.'"'.
                   ' cols="'.$this->cols.'" rows="'.$this->lines.'"';
             
-            if($this->flags)
+            if(isset($this->flags))
                 $r .= SP.$this->FlagsToHtml($this->flags);
             
-            if($this->error)
+            if(isset($this->error))
                 $r .= ' class="ffphp-error"';
             
             $r .= '>';
             
-            if($this->value)
+            if(isset($this->value))
                 $r .= $this->HSC($this->value);
             
             $r .= '</textarea>'.LF;
@@ -57,24 +57,22 @@ class ffInput extends ffObject implements ffiControl{
             else
                 $r .= ' type="text"';
             
-            if($this->value)
+            if(isset($this->value))
                 $r .= ' value="'.$this->HSC($this->value).'"';
             
-            if($this->maxlength)
+            if(isset($this->maxlength))
                 $r .= ' maxlength="'.$this->maxlength.'"';
             
-            if($this->flags) {
+            if(isset($this->flags))
                 $r .= SP.$this->FlagsToHtml($this->flags);
-            }
             
-            if($this->error) {
+            if(isset($this->error))
                 $r .= ' class="ffphp-error"';
-            }
             
             $r .= ' />'.LF;
         }
         
-        if($this->error)
+        if(isset($this->error))
             $r .= '<em class="ffphp-error">'.$this->HSC($this->error).'</em>'.LF;
         
         return $r;
