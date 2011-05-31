@@ -27,8 +27,7 @@ form.ffphp fieldset fieldset {
     padding: 0;
 }
 form.ffphp fieldset fieldset legend {
-    padding: 0;
-    margin-left: -0.6em;
+    padding: 0 0 0 0.45em;
     font-weight: normal;
 }
 form.ffphp fieldset fieldset label {
@@ -40,6 +39,9 @@ form.ffphp input,
 form.ffphp textarea {
     width: 56%;
     width: -moz-calc(60% - 1.5em - 5px);
+}
+form.ffphp fieldset fieldset label input {
+    width: auto;
 }
 
 form.ffphp em {

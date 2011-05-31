@@ -35,24 +35,55 @@
 </head>
 <body>
 <div id="container">
-<p><strong style="color:orange;">Please enter your data!</strong></p>
+<p><strong style="color:orange;">Please enter your submission!</strong></p>
 <?php
+
+function ShuffleText($text) {
+    $parts = explode(' ', $text);
+    foreach($parts AS &$part)
+        if(strlen($part) > 3)
+            $part = substr($part, 0, 1).str_shuffle(substr($part, 1, -1)).substr($part, -1);
+    return implode(' ', $parts);
+}
 
 require_once 'lib/ffPhp/ffPhp.php';
 
 $form = new ffPhp;
 
 $form->Add(new ffFieldset('Personal data'));
-$form->Add(new ffInput('lname', 'Last name'))->required = true;
-$form->Add(new ffInput('fname', 'First name'));
+
+$name = $form->Add(new ffInput('name', 'Name'));
+$name->required = true;
+
+$form->Add(new ffFieldset('Luggage'));
+
+$utils = $form->Add(new ffCheckbox('utils', 'Utilities'));
+$utils->AddChoices('Towel', 'Babelfish', 'H2G2');
+$utils->DisableChoices('H2G2');
+$utils->CheckChoices('Towel');
+$poem = $form->Add(new ffInput('poem', 'Poem'));
+$poem->lines = 5;
+$poem->value = <<<POEM
+O freddled gruntbuggly thy micturations are to me
+As plured gabbleblochits on a lurgid bee.
+Groop, I implore thee my foonting turlingdromes.
+And hooptiously drangle me with crinkly bindlewurdles,
+Or I will rend thee in the gobberwarts with my blurlecruncheon, see if I don't.
+POEM;
+
 $form->Add(new ffButton('Submit'));
 
 if($form->IsSent()) {
     if($form->IsComplete()) {
-        echo '<p>Submitted data:</p>';
-        echo '<pre>';
-        var_dump($form->req);
-        echo '</pre>';
+        echo '<p>Dear ';
+        if($utils->IsChecked('Towel'))
+            echo 'hitchhiker ';
+        echo $name->GetValue().', here is your poem:</p>';
+        if($utils->IsChecked('Babelfish'))
+            echo '<p>'.$poem->GetValue().'</p>';
+        else
+            echo '<p>'.ShuffleText($poem->GetValue()).'</p>';
+        echo "\n<!--\n".print_r($form->req, 1)."\n-->\n";
     }
     
     $form->ApplySent();
