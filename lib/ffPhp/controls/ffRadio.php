@@ -20,12 +20,12 @@ class ffRadio extends ffObject implements ffiControl {
         $this->EnsureOneChecked();
         $r = '';
         
-        $r .= '<fieldset>'.LF.'<legend';
+        $r .= '<fieldset';
         
         if(isset($this->error))
             $r .= ' class="ffphp-error"';
         
-        $r .= '>'.$this->HSC($this->label).'</legend>'.LF;
+        $r .= '>'.LF.'<legend>'.$this->HSC($this->label).'</legend>'.LF;
         
         if($this->error)
             $r .= '<em class="ffphp-error">'.$this->HSC($this->error).'</em>'.LF;
