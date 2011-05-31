@@ -53,7 +53,8 @@ class ffCheckbox extends ffObject implements ffiControl {
             $this->error = '';
             return false;
         }
-            
+        
+        return true;
     }
     
     public function ApplySent() {
