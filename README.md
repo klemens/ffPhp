@@ -15,7 +15,7 @@ Supported controls are:
  * Hidden field
  * Checkbox group
  * Radiobutton group
- * more coming...
+ * Grouped and ungrouped lists
 
 Look into `demo.php` for some examples.
 

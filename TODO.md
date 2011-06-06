@@ -1,8 +1,8 @@
 ToDo
 ====
 
- * Add ffList with grouped and ungrouped lists
  * Add Disable() and Enable() to ffInput and ffList to simplify flag use
- * Imagine more H2G2 stuff for ffList in demo
+ * Use ffChoiceContainer for all choice controls
  * Add ffDate, maybe with some js calendar
+ * Autogenerate ids from labels
  * Testing :D
