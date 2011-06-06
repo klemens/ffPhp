@@ -22,8 +22,6 @@ Look into `demo.php` for some examples.
 Licence
 -------
 
-ffPhp is licenced under [Creative Commons Attribution 3.0][1]. If you
+ffPhp is licenced under the MIT Licence (see LICENCE file). If you
 choose to fork or use parts of this project, it would be nice if you use a
-OpenSource licence.
-
-  [1]: http://creativecommons.org/licenses/by/3.0/
+open source licence.
