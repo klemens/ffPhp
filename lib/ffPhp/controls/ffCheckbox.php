@@ -8,12 +8,14 @@ class ffCheckbox extends ffObject implements ffiControl {
                                          'ffPhp'    => array('type' => 'object'));
     private $choices = array();
     
-    public function __construct($id = null, $label = null) {
-        if(isset($id))
-            $this->id = $id;
-        
+    public function __construct($label = null, $id = null) {
         if(isset($label))
             $this->label = $label;
+        
+        if(isset($id))
+            $this->id = $id;
+        else if(isset($label))
+            $this->id = $this->LabelToId($label);
     }
     
     public function GetHtml() {

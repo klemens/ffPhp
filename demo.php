@@ -55,23 +55,23 @@ $form = new ffPhp;
 
 $form->Add(new ffFieldset('Identification'));
 
-$name = $form->Add(new ffInput('name', 'Name'));
+$name = $form->Add(new ffInput('Name'));
 $name->required = true;
 
-$planet = $form->Add(new ffList('planet', 'Home planet'));
+$planet = $form->Add(new ffList('Home planet'));
 $planet->choices->Add('Betelgeuse Five', 'Earth', 'Vogsphere');
 $planet->choices->Select('Earth');
 
 $form->Add(new ffFieldset('Luggage'));
 
-$utils = $form->Add(new ffCheckbox('utils', 'Utilities'));
+$utils = $form->Add(new ffCheckbox('Utilities'));
 $utils->AddChoices('Towel', 'Babelfish', 'H2G2');
 $utils->DisableChoices('H2G2');
 $utils->CheckChoices('Babelfish');
 
 $form->Add(new ffFieldset('Poetry'));
 
-$poem = $form->Add(new ffInput('poem', 'Poem'));
+$poem = $form->Add(new ffInput('Poem'));
 $poem->lines = 5;
 $poem->value = <<<POEM
 O freddled gruntbuggly thy micturations are to me
@@ -80,7 +80,7 @@ Groop, I implore thee my foonting turlingdromes.
 And hooptiously drangle me with crinkly bindlewurdles,
 Or I will rend thee in the gobberwarts with my blurlecruncheon, see if I don't.
 POEM;
-$style = $form->Add(new ffRadio('style', 'Style'));
+$style = $form->Add(new ffRadio('Style'));
 $style->AddChoices('Normal', 'Italic');
 $style->CheckChoice('Italic');
 
@@ -89,8 +89,10 @@ $form->Add(new ffButton('Submit'));
 if($form->IsSent()) {
     if($form->IsComplete()) {
         echo '<p>Hail ';
+        
         if($utils->IsChecked('Towel'))
             echo 'hitchhiker ';
+        
         echo $name->GetValue().' from '.$planet->GetSingleValue().
              ', let me give pleasure to you by declaiming this graceful poem:</p>';
         
