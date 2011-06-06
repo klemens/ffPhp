@@ -6,6 +6,7 @@ if(!defined('SP')) define('SP', ' ');
 class ffException extends exception {};
 
 require_once 'ffObject.php';
+require_once 'container/ffChoiceContainer.php';
 
 require_once 'controls/ffFieldset.php';
 require_once 'controls/ffInput.php';
@@ -13,6 +14,7 @@ require_once 'controls/ffHidden.php';
 require_once 'controls/ffButton.php';
 require_once 'controls/ffCheckbox.php';
 require_once 'controls/ffRadio.php';
+require_once 'controls/ffList.php';
 
 class ffPhp extends ffObject {
     protected $allowedProperties = array('id'       => array('type' => 'u+int'),

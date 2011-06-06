@@ -78,6 +78,9 @@ form.ffphp li.ffphp-r2 {
 form.ffphp input.ffphp-error {
     border: solid 2px red;
 }
+form.ffphp select.ffphp-error {
+    border: solid 2px red;
+}
 form.ffphp fieldset fieldset.ffphp-error label {
     color: red;
     font-weight: bold;

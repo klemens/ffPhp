@@ -58,12 +58,16 @@ $form->Add(new ffFieldset('Identification'));
 $name = $form->Add(new ffInput('name', 'Name'));
 $name->required = true;
 
+$planet = $form->Add(new ffList('planet', 'Home planet'));
+$planet->choices->Add('Betelgeuse Five', 'Earth', 'Vogsphere');
+$planet->choices->Select('Earth');
+
 $form->Add(new ffFieldset('Luggage'));
 
 $utils = $form->Add(new ffCheckbox('utils', 'Utilities'));
 $utils->AddChoices('Towel', 'Babelfish', 'H2G2');
 $utils->DisableChoices('H2G2');
-$utils->CheckChoices('Towel');
+$utils->CheckChoices('Babelfish');
 
 $form->Add(new ffFieldset('Poetry'));
 
@@ -84,10 +88,11 @@ $form->Add(new ffButton('Submit'));
 
 if($form->IsSent()) {
     if($form->IsComplete()) {
-        echo '<p>Dear ';
+        echo '<p>Hail ';
         if($utils->IsChecked('Towel'))
             echo 'hitchhiker ';
-        echo $name->GetValue().', here is your poem:</p>';
+        echo $name->GetValue().' from '.$planet->GetSingleValue().
+             ', let me give pleasure to you by declaiming this graceful poem:</p>';
         
         $text = str_replace("\r\n", "\n", $poem->GetValue());
         if($utils->IsChecked('Babelfish'))
