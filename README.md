@@ -17,7 +17,43 @@ Supported controls are:
  * Radiobutton group
  * Grouped and ungrouped lists
 
-Look into `demo.php` for some examples.
+Example
+-------
+
+A simple login form.
+
+``` php
+<?php
+
+$form = new ffPhp;
+$name = $form->Add(new ffInput('Username'));
+$password = $form->Add(new ffInput('Password'));
+
+$name->required = true;
+$password->required = true;
+$password->password = true;
+
+if($form->IsSent()) {
+    if($form->IsComplete()) {
+        if(LOGIN_WRONG_NAME == login($name->GetValue(), $password->GetValue())) {
+            //display custom error messages to the user
+            $name->error = 'This username does not exist.';
+        } else {
+            //redirect to backend or the like
+        }
+    } else {
+        //sets the name the user already entered as the default value
+        //and marks the missing fields in red
+        $form->ApplySent();
+    }
+}
+
+$form->Show();
+
+?>
+```
+
+Look into `demo.php` for a more complete example.
 
 Licence
 -------
