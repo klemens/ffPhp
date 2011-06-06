@@ -186,16 +186,29 @@ abstract class ffObject {
      * Returns xHtml code for an array of flags:
      * array('disabled') becomes 'disabled="disabled"'
      */
-     public function FlagsToHtml($flags) {
+    public function FlagsToHtml($flags) {
         $r = '';
-        
+
         foreach($flags AS $flag) {
             if(empty($flag))
                 continue;
             
             $r .= $flag.'="'.$flag.'" ';
         }
-        
+
         return trim($r);
-     }
+    }
+     
+    /**
+     * This function tries to create a valid xHtml id fron a given label.
+     * If the label only exists of forbidden characters, a ffException is thrown.
+     */
+    public function LabelToId($label) {
+        $id = preg_replace("/[^a-zA-Z0-9\\-_:\\.]/", '', $label);
+        $id = trim($id);
+        if(preg_match("/^[a-zA-Z]{1}.*/", $id))
+            return $id;
+        else
+            throw new ffException('Specify an id or use a label that is convertible to an id!');
+    }
 }
