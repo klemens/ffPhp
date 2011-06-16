@@ -2,8 +2,6 @@ ffPhp
 =====
 _Forms for PHP_
 
-![Screenshot of ffPhp](https://raw.github.com/klemens/ffPhp/master/demo.png)
-
 Overview
 --------
 
@@ -55,7 +53,8 @@ $form->Show();
 ?>
 ```
 
-Look into `demo.php` for a more complete example.
+Look into `demo.php` for the following more complete example:
+![Screenshot of ffPhp](https://raw.github.com/klemens/ffPhp/master/demo.png)
 
 Licence
 -------
