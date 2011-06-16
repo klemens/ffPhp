@@ -1,7 +1,8 @@
 ffPhp
 =====
 _Forms for PHP_
-![Screenshot of ffPhp][https://raw.github.com/klemens/ffPhp/master/demo.png]
+
+![Screenshot of ffPhp](https://raw.github.com/klemens/ffPhp/master/demo.png)
 
 Overview
 --------
