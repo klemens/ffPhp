@@ -26,12 +26,6 @@
     /* ]]> */
     </style>
     <link rel="stylesheet" type="text/css" href="css/all.css" />
-    <!--  //[if IE 8]>
-    <link rel="stylesheet" type="text/css" href="css/ie8.css" />
-    <![endif]-->
-    <!--  //[if lte IE 7]>
-    <link rel="stylesheet" type="text/css" href="css/ie7.css" />
-    <![endif]-->
 </head>
 <body>
 <div id="container">
