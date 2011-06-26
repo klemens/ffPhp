@@ -75,7 +75,8 @@ form.ffphp li.ffphp-r1 {
 form.ffphp li.ffphp-r2 {
     background-color: #F5F5F5;
 }
-form.ffphp input.ffphp-error {
+form.ffphp input.ffphp-error,
+form.ffphp textarea.ffphp-error {
     border: solid 2px red;
 }
 form.ffphp select.ffphp-error {
