@@ -26,8 +26,10 @@
     /* ]]> */
     </style>
     <link rel="stylesheet" type="text/css" href="css/all.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/ffPhp.js"></script>
 </head>
-<body>
+<body onload="ffPhp.Init();">
 <div id="container">
 <?php
 
@@ -63,7 +65,7 @@ $utils->AddChoices('Towel', 'Babelfish', 'H2G2');
 $utils->DisableChoices('H2G2');
 $utils->CheckChoices('Babelfish');
 
-$form->Add(new ffFieldset('Poetry'));
+$form->Add(new ffFieldset('Poetry'))->collapsed = true;
 
 $poem = $form->Add(new ffInput('Poem'));
 $poem->lines = 5;

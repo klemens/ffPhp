@@ -92,3 +92,8 @@ form.ffphp em.ffphp-error {
     font-size: 0.8em;
     font-weight: bold;
 }
+form.ffphp span.toggle {
+    cursor: pointer;
+    font-size: 70%;
+    vertical-align: 10%;
+}

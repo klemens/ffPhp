@@ -1,10 +1,12 @@
 <?php
 
 class ffFieldset extends ffObject implements ffiControl{
-    protected $allowedProperties = array('id'       => array('type' => 'string', 'default' => ''),
-                                         'label'    => array('type' => 'string', 'default' => ''),
-                                         'cssClass' => array('type' => 'array',  'default' => array()),
-                                         'ffPhp'    => array('type' => 'object'));
+    protected $allowedProperties = array('id'          => array('type' => 'string', 'default' => ''),
+                                         'label'       => array('type' => 'string', 'default' => ''),
+                                         'collapsible' => array('type' => 'bool', 'default' => false),
+                                         'collapsed'   => array('type' => 'bool', 'default' => false, 'callback' => 'OnCollapsed'),
+                                         'cssClass'    => array('type' => 'array',  'default' => array()),
+                                         'ffPhp'       => array('type' => 'object'));
     
     public $fieldsetOpen = false;
     
@@ -33,13 +35,24 @@ class ffFieldset extends ffObject implements ffiControl{
         
         $r .= '>'.LF;
         
-        if(isset($this->label)) {
-            $r .= '<legend>'.$this->label.'</legend>'.LF;
+        $label = $this->label;
+        
+        if($this->collapsible) {
+            $label .= ' <span class="toggle">'.($this->collapsed ? '▲' : '▼').'</span>';
+        }
+        
+        if(!empty($label)) {
+            $r .= '<legend>'.$label.'</legend>'.LF;
         }
         
         $r .= '<ol>'.LF;
         
         return $r;
+    }
+    
+    public function OnCollapsed() {
+        if($this->collapsed)
+            $this->collapsible = true;
     }
     
     public function IsComplete() {
