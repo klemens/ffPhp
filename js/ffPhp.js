@@ -1,5 +1,6 @@
 var ffPhp = {
     Init: function() {
+        $('form.ffphp').submit(ffPhp.BasicCheck);
         $('form.ffphp > fieldset > legend > span').each(function() {
             $(this).click(ffPhp.ToggleFieldset);
             if(this.innerHTML === '▲')
@@ -16,5 +17,19 @@ var ffPhp = {
             this.innerHTML = '▲';
         }
         return true;
+    },
+    BasicCheck: function() {
+        var ok = true;
+        $('label > em', this).each(function() {
+            //Check input fields
+            var input = $(this.parentNode).siblings('input[type=text],textarea');
+            if($.trim(input.val()) === '') {
+                ok = false;
+                input.addClass('ffphp-error');
+            } else {
+                input.removeClass('ffphp-error');
+            }
+        });
+        return ok;
     }
 };
