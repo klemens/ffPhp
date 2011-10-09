@@ -4,6 +4,7 @@ class ffButton extends ffObject implements ffiButtonControl {
     protected $allowedProperties = array('id'      => array('type' => 'string', 'default' => ''),
                                          'type'    => array('type' => 'string', 'default' => 'submit', 'callback' => 'OnType'),
                                          'label'   => array('type' => 'string'),
+                                         'description' => array('type' => 'string', 'default' => ''),
                                          'value'   => array('type' => 'string', 'default' => ''),
                                          'flags'   => array('type' => 'array', 'default' => array()),
                                          'ffPhp'   => array('type' => 'object'));
@@ -34,6 +35,9 @@ class ffButton extends ffObject implements ffiButtonControl {
         }
         
         $r .= '>'.$this->label.'</button>';
+        
+        if(isset($this->description))
+            $r .= '<p class="desc">'.$this->description.'</p>'.LF;
         
         $r .= '</li>'.LF.'</ol>'.LF.'</fieldset>'.LF;
         

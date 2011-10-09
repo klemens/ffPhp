@@ -3,6 +3,7 @@
 class ffInput extends ffObject implements ffiControl{
     protected $allowedProperties = array('id'       => array('type' => 'string'),
                                          'label'    => array('type' => 'string'),
+                                         'description' => array('type' => 'string', 'default' => ''),
                                          'lines'    => array('type' => 'u+int', 'default' => 1),
                                          'cols'     => array('type' => 'u+int', 'default' => 15),
                                          'maxlength'=> array('type' => 'uint', 'default' => 0),
@@ -34,6 +35,7 @@ class ffInput extends ffObject implements ffiControl{
             $r .= ' <em title="Required field!">*</em>';
         
         $r .= '</label>'.LF;
+        $r .= '<div class="item">'.LF;
         
         if($this->lines > 1) { //textarea
             $r .= '<textarea id="'.$this->id.'" name="'.$this->id.'"'.
@@ -76,6 +78,11 @@ class ffInput extends ffObject implements ffiControl{
         
         if($this->error)
             $r .= '<em class="ffphp-error">'.$this->HSC($this->error).'</em>'.LF;
+        
+        if(isset($this->description))
+            $r .= '<p class="desc">'.$this->HSC($this->description).'</p>'.LF;
+        
+        $r .= '</div>'.LF;
         
         return $r;
     }

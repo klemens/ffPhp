@@ -53,6 +53,7 @@ $form->Add(new ffFieldset('Identification'));
 
 $name = $form->Add(new ffInput('Name'));
 $name->required = true;
+$name->description = 'What would be most useful for you?';
 
 $planet = $form->Add(new ffList('Home planet'));
 $planet->choices->Add('Betelgeuse Five', 'Earth', 'Vogsphere');
@@ -64,6 +65,7 @@ $utils = $form->Add(new ffCheckbox('Utilities'));
 $utils->AddChoices('Towel', 'Babelfish', 'H2G2');
 $utils->DisableChoices('H2G2');
 $utils->CheckChoices('Babelfish');
+$utils->description = 'What would be most useful for you?';
 
 $form->Add(new ffFieldset('Poetry'))->collapsed = true;
 
@@ -80,7 +82,7 @@ $style = $form->Add(new ffRadio('Style'));
 $style->AddChoices('Normal', 'Italic');
 $style->CheckChoice('Italic');
 
-$form->Add(new ffButton('Submit'));
+$button = $form->Add(new ffButton('Submit'));
 
 if($form->IsSent()) {
     if($form->IsComplete()) {

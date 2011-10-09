@@ -3,6 +3,7 @@
 class ffCheckbox extends ffObject implements ffiControl {
     protected $allowedProperties = array('id'       => array('type' => 'string'),
                                          'label'    => array('type' => 'string'),
+                                         'description' => array('type' => 'string', 'default' => ''),
                                          'error'    => array('type' => 'string',  'default' => ''),
                                          'required' => array('type' => 'bool', 'default' => false),
                                          'ffPhp'    => array('type' => 'object'));
@@ -44,6 +45,9 @@ class ffCheckbox extends ffObject implements ffiControl {
             
             $r .= ' />'.LF.$this->HSC($choice).LF.'</label>'.LF;
         }
+        
+        if(isset($this->description))
+            $r .= '<p class="desc">'.$this->description.'</p>'.LF;
         
         $r .= '</fieldset>'.LF;
         

@@ -3,6 +3,7 @@
 class ffRadio extends ffObject implements ffiControl {
     protected $allowedProperties = array('id'       => array('type' => 'string'),
                                          'label'    => array('type' => 'string'),
+                                         'description' => array('type' => 'string', 'default' => ''),
                                          'error'    => array('type' => 'string',  'default' => ''),
                                          'ffPhp'    => array('type' => 'object'));
     private $choices = array();
@@ -44,6 +45,9 @@ class ffRadio extends ffObject implements ffiControl {
             
             $r .= ' />'.LF.$this->HSC($choice).LF.'</label>'.LF;
         }
+        
+        if(isset($this->description))
+            $r .= '<p class="desc">'.$this->description.'</p>'.LF;
         
         $r .= '</fieldset>'.LF;
         

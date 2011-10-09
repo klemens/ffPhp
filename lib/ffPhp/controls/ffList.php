@@ -3,6 +3,7 @@
 class ffList extends ffObject implements ffiControl {
     protected $allowedProperties = array('id'       => array('type' => 'string'),
                                          'label'    => array('type' => 'string'),
+                                         'description' => array('type' => 'string', 'default' => ''),
                                          'size'     => array('type' => 'u+int', 'default' => 1),
                                          'error'    => array('type' => 'string',  'default' => ''),
                                          'required' => array('type' => 'bool', 'default' => false),
@@ -36,7 +37,11 @@ class ffList extends ffObject implements ffiControl {
         if(isset($this->required))
             $r .= ' <em title="Required field!">*</em>';
         
-        $r .= '</label>'.LF.'<select id="'.$this->id.'" name="'.$this->id.'[]"';
+        $r .= '</label>'.LF;
+        
+        $r .= '<div class="item">'.LF;
+
+        $r .= '<select id="'.$this->id.'" name="'.$this->id.'[]"';
         
         $r .= ' size="'.$this->size.'"';
         
@@ -67,6 +72,11 @@ class ffList extends ffObject implements ffiControl {
         
         if($this->error)
             $r .= '<em class="ffphp-error">'.$this->HSC($this->error).'</em>'.LF;
+        
+        if(isset($this->description))
+            $r .= '<p class="desc">'.$this->HSC($this->description).'</p>'.LF;
+        
+        $r .= '</div>'.LF;
         
         return $r;
     }

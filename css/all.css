@@ -35,10 +35,23 @@ form.ffphp fieldset fieldset label {
     width: auto;
 }
 
-form.ffphp input,
-form.ffphp textarea {
+form.ffphp div.item {
     width: 60%;
     width: -moz-calc(65% - 1.5em - 5px);
+    display: -moz-inline-box;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+form.ffphp div.item p.desc {
+    padding: 0;
+    margin: 0;
+    font-size: 80%;
+    padding: .5em 0 0 1em;
+}
+form.ffphp input,
+form.ffphp textarea {
+    width: 100%;
 }
 form.ffphp fieldset fieldset label input {
     width: auto;
@@ -61,12 +74,22 @@ form.ffphp label {
 form.ffphp fieldset fieldset label {
     margin-left: 35%;
 }
+form.ffphp fieldset fieldset p.desc {
+    padding-left: 1.6em;
+    font-size: 80%;
+    margin: .5em 0 0 35.5%;
+}
 form.ffphp button {
     margin-left: 36%;
     margin-left: -moz-calc(35% + 0.6em);
 }
 form.ffphp fieldset.ffphp-button li {
     padding: 0 0 0 5px;
+}
+form.ffphp fieldset.ffphp-button p.desc {
+    margin-left: 36%;
+    margin-left: -moz-calc(35% + 1.4em);
+    font-size: 80%;
 }
 
 form.ffphp li.ffphp-r1 {
