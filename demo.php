@@ -53,7 +53,6 @@ $form->Add(new ffFieldset('Identification'));
 
 $name = $form->Add(new ffInput('Name'));
 $name->required = true;
-$name->description = 'What would be most useful for you?';
 
 $planet = $form->Add(new ffList('Home planet'));
 $planet->choices->Add('Betelgeuse Five', 'Earth', 'Vogsphere');
@@ -82,7 +81,7 @@ $style = $form->Add(new ffRadio('Style'));
 $style->AddChoices('Normal', 'Italic');
 $style->CheckChoice('Italic');
 
-$button = $form->Add(new ffButton('Submit'));
+$form->Add(new ffButton('Submit'));
 
 if($form->IsSent()) {
     if($form->IsComplete()) {

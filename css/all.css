@@ -87,8 +87,8 @@ form.ffphp fieldset.ffphp-button li {
     padding: 0 0 0 5px;
 }
 form.ffphp fieldset.ffphp-button p.desc {
-    margin-left: 36%;
-    margin-left: -moz-calc(35% + 1.4em);
+    margin: .5em 0 0 36%;
+    margin-left: -moz-calc(35% + 1.6em);
     font-size: 80%;
 }
 
