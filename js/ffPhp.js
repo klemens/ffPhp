@@ -22,7 +22,7 @@ var ffPhp = {
         var ok = true;
         $('label > em', this).each(function() {
             //Check input fields
-            var input = $(this.parentNode.parentNode.getElementsByTagName('div')[0]).children('input[type=text],textarea');
+            var input = $(this.parentNode.parentNode.getElementsByTagName('div')[0]).children('input[type=text],input[type=password],textarea');
             if($.trim(input.val()) === '') {
                 ok = false;
                 input.addClass('ffphp-error');
